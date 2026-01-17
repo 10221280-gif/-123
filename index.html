@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سمكة الابراهيم</title>
+
+<style>
+* { box-sizing: border-box; margin:0; padding:0; }
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background:#fff8f0; color:#333; text-align:center; }
+
+header {
+  background: linear-gradient(90deg, #121f87,#1517a6);
+  color:#fff;
+  padding:15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:15px;
+}
+header img { width:55px; border-radius:10px; }
+
+nav {
+  margin:15px 0;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+nav button {
+  background:white; color:#0f169a;
+  border:none; padding:10px 20px;
+  font-weight:bold; border-radius:30px;
+  cursor:pointer;
+}
+nav button.active,
+nav button:hover { background:#2100c7; color:white; }
+
+#welcome {
+  position:relative; width:100%; height:100vh; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  gap:20px;
+}
+#welcome img { width:250px; opacity:0.8; transition:all 0.5s ease; }
+#welcome p { color:#fff; font-size:1.5em; text-shadow: 1px 1px 3px #000; }
+
+.menu { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; padding:30px; }
+.menu.hidden { display:none; }
+h2 { grid-column:1/-1; color:#0007c7; }
+
+.dish {
+  background:white; border-radius:15px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1); overflow:hidden;
+}
+.dish img,
+.dish video { width:100%; height:160px; object-fit:cover; }
+.dish p { padding:10px; font-weight:bold; }
+
+.dish-footer-logo { width:80px; margin:10px auto; display:block; }
+
+footer { background:#0d00c7; color:white; padding:15px; margin-top:20px; }
+
+#offers { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; padding:30px; }
+#offers .dish video { width:100%; height:160px; object-fit:cover; }
+
+</style>
+</head>
+<body>
+
+<header>
+  <img src="WhatsApp Image 2026-01-17 at 2.42.42 PM.jpeg" alt="لوغو الهيدر">
+  <h1>سمكة الابراهيم</h1>
+</header>
+
+<nav>
+  <button onclick="showSection('sandwich', this)">السندويش</button>
+  <button onclick="showSection('snack', this)">اطباق رئسية </button>
+  <button onclick="showSection('burger', this)">مقبلات</button>
+  <button onclick="showSection('offers', this)">العروضات</button>
+  <button onclick="showSection('drinks', this)">المشروبات</button>
+  <button onclick="showSection('extras', this)">صوصات</button>
+</nav>
+
+<!-- شاشة الترحيب -->
+<section id="welcome">
+  <img src="WhatsApp Image 2026-01-17 at 2.05.48 PM.jpeg" alt="لوغو أسفل الصفحة">
+  <p>نتميز بلقمتنا، وطعمتنا بتحكي عنا</p>
+</section>
+
+<!-- السندوش -->
+<section id="sandwich" class="menu hidden">
+<h2>🥙 السندويش</h2>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.59 PM.jpeg"><p>قريدس – 400000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.57 PM.jpeg"><p>سمكة حرة – 350000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.53 PM (2).jpeg"><p>سمك مشوي –400000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.50.59 PM.jpeg"><p>كلمار – 600000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.52.15 PM.jpeg"><p>اخطبوط – 600000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.53 PM (1).jpeg"><p>ثمار البحر – 600000</p></div>
+</section>
+
+<!-- السناك -->
+<section id="snack" class="menu hidden">
+<h2>🍽️ اطباق رئسية</h2>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.54.57 PM.jpeg"><p>بوكس كوكتيل بحري   – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.59 PM (1).jpeg"><p>صحن سمك – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.57 PM.jpeg"><p>سمكة حرة – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.50.59 PM.jpeg"><p>كلمار – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.59 PM.jpeg"><p>قريدس مقلي – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.54 PM.jpeg"><p>قريدس مشوي – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.52.15 PM.jpeg"><p>اخطبوط – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.56 PM.jpeg"><p>بزرة – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.55 PM.jpeg"><p>ثمار البحر – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.54 PM (2).jpeg"><p>الحسنة – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.55 PM (2).jpeg"><p>أبو شوكة – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.53 PM (1).jpeg"><p>دينامت شريمب – </p></div>
+</section>
+
+<!-- البرغر -->
+<section id="burger" class="menu hidden">
+<h2> مقبلات</h2>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.55 PM (1).jpeg"><p>ورق عنب صغير – 250000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.55 PM (1).jpeg"><p>ورق عنب كبير – 400000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM.jpeg"><p>فتوش صغير – 250000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM.jpeg"><p>فتوش كبير – 400000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.57 PM.jpeg"><p>تبولة صغير – 250000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.57 PM.jpeg"><p>تبولة كبير – 400000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (1).jpeg"><p>كراب سلاد صغير – 250000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (1).jpeg"><p>كراب سلاد كبير – 400000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (2).jpeg"><p>حمص – 200000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (3).jpeg"><p>متبل – 200000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (5).jpeg"><p>بطاطا صغير – 200000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (5).jpeg"><p>بطاطا كبير – 400000</p></div>
+</section>
+
+<!-- العروضات -->
+<section id="offers" class="menu hidden">
+<h2>🎁 العروضات</h2>
+<div class="dish">
+  <video controls>
+    <source src="WhatsApp Video 2026-01-17 at 3.38.24 PM.mp4" type="video/mp4">
+  </video>
+  <p>🔥 عرض الأسبوع – شاهد التفاصيل</p>
+</div>
+<div class="dish">
+  <video controls>
+    <source src="WhatsApp Video 2026-01-17 at 3.37.34 PM.mp4" type="video/mp4">
+  </video>
+  <p>🔥 عرض الأسبوع – شاهد التفاصيل</p>
+</div>
+
+</section>
+
+
+
+<!-- المشروبات -->
+<section id="drinks" class="menu hidden">
+<h2>🥤 المشروبات</h2>
+<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.04.10 PM (2).jpeg"><p>بيبسي صغير – 70000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.09.25 PM.jpeg"><p>بيبسي تنك – 80000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.04.11 PM.jpeg"><p>بيبسي لتر وربع – 130000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.04.10 PM (1).jpeg"><p>ماء صغير – 30000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.04.10 PM.jpeg"><p>ماء كبير – 40000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.04.11 PM (1).jpeg"><p>زي كولا تنك – 50000</p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.04.11 PM (2).jpeg"><p>زي كولا لتر – 100000</p></div>
+</section>
+
+
+
+<!-- الإضافات -->
+<section id="extras" class="menu hidden">
+<h2>✨ صوصات</h2>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.59 PM.jpeg"><p>صوص الابراهيم – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.59 PM (1).jpeg"><p>توم عربي – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (4).jpeg"><p>توم عادي – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.59 PM.jpeg"><p>طحينية – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (6).jpeg"><p>حر بطحينية – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.59 PM.jpeg"><p>كوكتيل صوص – </p></div>
+<div class="dish"><img src="WhatsApp Image 2026-01-03 at 12.52.12 PM.jpeg"><p>داينمت صوص – </p></div>
+</section>
+
+<footer>
+©️ 2025 سمكة الابراهيم
+</footer>
+
+<script>
+function showSection(sectionId, btn){
+  document.querySelectorAll('.menu').forEach(sec => sec.classList.add('hidden'));
+  document.getElementById(sectionId).classList.remove('hidden');
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('welcome').style.display = 'none';
+}
+</script>
+
+</body>
+</html>

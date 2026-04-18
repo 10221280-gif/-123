@@ -3,192 +3,474 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سمكة الابراهيم</title>
+<title>الديك</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-* { box-sizing: border-box; margin:0; padding:0; }
-body { font-family: 'Segoe UI', Tahoma, sans-serif; background:#fff8f0; color:#333; text-align:center; }
-
-header {
-  background: linear-gradient(90deg, #121f87,#1517a6);
-  color:#fff;
-  padding:15px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:15px;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
 }
-header img { width:55px; border-radius:10px; }
 
-nav {
-  margin:15px 0;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
+body{
+color:#fff;
+text-align:center;
+min-height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.92)),
+url("assets/images/bg.jpg");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
 }
-nav button {
-  background:white; color:#0f169a;
-  border:none; padding:10px 20px;
-  font-weight:bold; border-radius:30px;
-  cursor:pointer;
+
+/* HEADER */
+header{
+padding:18px 15px 6px;
+background:rgba(0,0,0,.55);
+backdrop-filter:blur(8px);
+border-bottom:1px solid rgba(255,140,0,.25);
 }
-nav button.active,
-nav button:hover { background:#2100c7; color:white; }
 
-#welcome {
-  position:relative; width:100%; height:100vh; overflow:hidden;
-  display:flex; flex-direction:column; justify-content:center; align-items:center;
-  gap:20px;
+.logo{
+font-size:52px;
+font-weight:900;
+color:#fff;
+text-shadow:
+0 0 10px #ff7b00,
+0 0 20px #ff4d00,
+0 0 40px #ff7b00;
+margin:0;
+line-height:1.1;
 }
-#welcome img { width:250px; opacity:0.8; transition:all 0.5s ease; }
-#welcome p { color:#fff; font-size:1.5em; text-shadow: 1px 1px 3px #000; }
 
-.menu { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; padding:30px; }
-.menu.hidden { display:none; }
-h2 { grid-column:1/-1; color:#0007c7; }
-
-.dish {
-  background:white; border-radius:15px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1); overflow:hidden;
+.sublogo{
+font-size:13px;
+letter-spacing:4px;
+color:#ffb300;
+margin-top:4px;
 }
-.dish img,
-.dish video { width:100%; height:160px; object-fit:cover; }
-.dish p { padding:10px; font-weight:bold; }
 
-.dish-footer-logo { width:80px; margin:10px auto; display:block; }
+/* NAV */
+nav{
+padding:6px 10px 12px;
+}
 
-footer { background:#0d00c7; color:white; padding:15px; margin-top:20px; }
+nav button{
+background:rgba(0,0,0,.55);
+color:#ffb300;
+border:2px solid #ff7b00;
+padding:10px 16px;
+margin:5px;
+border-radius:25px;
+font-size:15px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
 
-#offers { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; padding:30px; }
-#offers .dish video { width:100%; height:160px; object-fit:cover; }
+nav button:hover{
+background:#ff7b00;
+color:#fff;
+transform:translateY(-2px);
+}
 
+/* HOME */
+#welcome{
+padding:50px 20px;
+}
+
+#welcome h2{
+font-size:32px;
+color:#ffcc66;
+margin-bottom:10px;
+}
+
+#welcome p{
+font-size:18px;
+color:#ddd;
+}
+
+/* MENU */
+.menu{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:18px;
+padding:20px;
+}
+
+.hidden{
+display:none;
+}
+
+/* CARD */
+.dish{
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,140,0,.25);
+border-radius:18px;
+overflow:hidden;
+transition:.3s;
+}
+
+.dish:hover{
+transform:translateY(-6px);
+box-shadow:0 12px 24px rgba(255,120,0,.22);
+}
+
+.dish img{
+width:100%;
+height:150px;
+object-fit:cover;
+}
+
+.dish p{
+padding:12px;
+font-size:17px;
+font-weight:bold;
+line-height:1.7;
+}
+
+.desc{
+display:block;
+font-size:12px;
+font-weight:normal;
+color:#cfcfcf;
+margin-top:4px;
+line-height:1.6;
+padding:0 6px;
+}
+
+.price{
+display:block;
+margin-top:7px;
+color:#ffb300;
+font-size:18px;
+}
+
+/* BUTTONS */
+.controls{
+display:flex;
+justify-content:center;
+gap:10px;
+padding:0 0 14px;
+}
+
+.controls button{
+border:none;
+padding:8px 14px;
+font-size:18px;
+font-weight:bold;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.controls button:first-child{
+background:#ff8800;
+color:#fff;
+}
+
+.controls button:last-child{
+background:#cc0000;
+color:#fff;
+}
+
+.controls button:hover{
+transform:scale(1.08);
+}
+
+/* CART BUTTON */
+.open-cart{
+position:fixed;
+bottom:20px;
+right:20px;
+background:linear-gradient(45deg,#ff9d00,#ff4d00);
+color:#fff;
+border:none;
+padding:16px;
+border-radius:50%;
+font-size:22px;
+cursor:pointer;
+box-shadow:0 5px 18px rgba(255,100,0,.35);
+z-index:999;
+}
+
+/* CART */
+.cart{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#111;
+display:none;
+overflow:auto;
+padding:20px;
+z-index:1000;
+}
+
+.cart h2{
+color:#ffb300;
+margin-bottom:20px;
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#1c1c1c;
+padding:12px;
+margin-bottom:10px;
+border-radius:12px;
+border:1px solid rgba(255,140,0,.2);
+}
+
+.cart-item button{
+background:#d00000;
+color:#fff;
+border:none;
+padding:7px 12px;
+border-radius:8px;
+cursor:pointer;
+}
+
+#total{
+margin-top:15px;
+font-size:24px;
+color:#ffcc66;
+}
+
+.whatsapp{
+background:#25D366;
+color:#fff;
+border:none;
+padding:14px 20px;
+border-radius:30px;
+font-size:18px;
+margin-top:20px;
+cursor:pointer;
+}
+
+/* SOCIAL */
+.social{
+padding:30px 20px;
+}
+
+.social h2{
+color:#ffb300;
+margin-bottom:15px;
+}
+
+.social a{
+display:block;
+max-width:260px;
+margin:10px auto;
+padding:12px;
+background:rgba(0,0,0,.55);
+border:1px solid rgba(255,153,0,.2);
+border-radius:12px;
+color:#fff;
+text-decoration:none;
+transition:.3s;
+}
+
+.social a:hover{
+background:#ff8c00;
+}
+
+/* FOOTER */
+footer{
+background:rgba(0,0,0,.6);
+padding:15px;
+color:#ffb300;
+margin-top:20px;
+font-weight:bold;
+}
 </style>
 </head>
+
 <body>
 
 <header>
-  <img src="WhatsApp Image 2026-01-17 at 2.42.42 PM.jpeg" alt="لوغو الهيدر">
-  <h1>سمكة الابراهيم</h1>
+<div class="logo">🐓 الديك</div>
+<div class="sublogo">FAST • TASTY • FRESH</div>
 </header>
 
 <nav>
-  <button onclick="showSection('sandwich', this)">السندويش</button>
-  <button onclick="showSection('snack', this)">اطباق رئسية </button>
-  <button onclick="showSection('burger', this)">مقبلات</button>
-  <button onclick="showSection('offers', this)">العروضات</button>
-  <button onclick="showSection('drinks', this)">المشروبات</button>
-  <button onclick="showSection('extras', this)">صوصات</button>
+<button onclick="showSection('sandwich')">السندويش</button>
+<button onclick="showSection('shawerma')">الشاورما</button>
+<button onclick="goHome()">الرئيسية</button>
 </nav>
 
-<!-- شاشة الترحيب -->
 <section id="welcome">
-  <img src="WhatsApp Image 2026-01-17 at 2.05.48 PM.jpeg" alt="لوغو أسفل الصفحة">
-  <p>نتميز بلقمتنا، وطعمتنا بتحكي عنا</p>
+<h2>أهلاً بكم في الديك</h2>
+<p>الطعم الذي لا يُقاوم 🔥</p>
 </section>
 
-<!-- السندوش -->
+<!-- السندويش -->
 <section id="sandwich" class="menu hidden">
-<h2>🥙 السندويش</h2>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.59 PM.jpeg"><p>قريدس – 400000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.57 PM.jpeg"><p>سمكة حرة – 350000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.53 PM (2).jpeg"><p>سمك مشوي –400000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.50.59 PM.jpeg"><p>كلمار – 600000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.52.15 PM.jpeg"><p>اخطبوط – 600000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.53 PM (1).jpeg"><p>ثمار البحر – 600000</p></div>
-</section>
 
-<!-- السناك -->
-<section id="snack" class="menu hidden">
-<h2>🍽️ اطباق رئسية</h2>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.54.57 PM.jpeg"><p>بوكس كوكتيل بحري   – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.59 PM (1).jpeg"><p>صحن سمك – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.57 PM.jpeg"><p>سمكة حرة – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.50.59 PM.jpeg"><p>كلمار – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.59 PM.jpeg"><p>قريدس مقلي – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.54 PM.jpeg"><p>قريدس مشوي – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.52.15 PM.jpeg"><p>اخطبوط – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.56 PM.jpeg"><p>بزرة – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.55 PM.jpeg"><p>ثمار البحر – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.54 PM (2).jpeg"><p>الحسنة – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.55 PM (2).jpeg"><p>أبو شوكة – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.53 PM (1).jpeg"><p>دينامت شريمب – </p></div>
-</section>
-
-<!-- البرغر -->
-<section id="burger" class="menu hidden">
-<h2> مقبلات</h2>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.55 PM (1).jpeg"><p>ورق عنب صغير – 250000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 2.03.55 PM (1).jpeg"><p>ورق عنب كبير – 400000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM.jpeg"><p>فتوش صغير – 250000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM.jpeg"><p>فتوش كبير – 400000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.57 PM.jpeg"><p>تبولة صغير – 250000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.57 PM.jpeg"><p>تبولة كبير – 400000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (1).jpeg"><p>كراب سلاد صغير – 250000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (1).jpeg"><p>كراب سلاد كبير – 400000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (2).jpeg"><p>حمص – 200000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (3).jpeg"><p>متبل – 200000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (5).jpeg"><p>بطاطا صغير – 200000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (5).jpeg"><p>بطاطا كبير – 400000</p></div>
-</section>
-
-<!-- العروضات -->
-<section id="offers" class="menu hidden">
-<h2>🎁 العروضات</h2>
 <div class="dish">
-  <video controls>
-    <source src="WhatsApp Video 2026-01-17 at 3.38.24 PM.mp4" type="video/mp4">
-  </video>
-  <p>🔥 عرض الأسبوع – شاهد التفاصيل</p>
+<img src="assets/images/img1.jpeg">
+<p>
+مقانق
+<small class="desc">مقانق مشوية، كاتشب، مايونيز، مخلل</small>
+<span class="price">350000 ل.ل</span>
+</p>
+<div class="controls">
+<button onclick="add('مقانق',350000)">➕</button>
+<button onclick="remove('مقانق')">➖</button>
 </div>
+</div>
+
 <div class="dish">
-  <video controls>
-    <source src="WhatsApp Video 2026-01-17 at 3.37.34 PM.mp4" type="video/mp4">
-  </video>
-  <p>🔥 عرض الأسبوع – شاهد التفاصيل</p>
+<img src="assets/images/img1.jpeg">
+<p>
+فاهيتا
+<small class="desc">دجاج، جبنة، خس، صوص خاص</small>
+<span class="price">400000 ل.ل</span>
+</p>
+<div class="controls">
+<button onclick="add('فاهيتا',400000)">➕</button>
+<button onclick="remove('فاهيتا')">➖</button>
+</div>
 </div>
 
 </section>
 
+<!-- الشاورما -->
+<section id="shawerma" class="menu hidden">
 
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>
+شاورما دجاج كبيرة
+<small class="desc">دجاج مشوي، ثوم، مخلل، بطاطا</small>
+<span class="price">280000 ل.ل</span>
+</p>
+<div class="controls">
+<button onclick="add('شاورما دجاج كبيرة',280000)">➕</button>
+<button onclick="remove('شاورما دجاج كبيرة')">➖</button>
+</div>
+</div>
 
-<!-- المشروبات -->
-<section id="drinks" class="menu hidden">
-<h2>🥤 المشروبات</h2>
-<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.04.10 PM (2).jpeg"><p>بيبسي صغير – 70000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.09.25 PM.jpeg"><p>بيبسي تنك – 80000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.04.11 PM.jpeg"><p>بيبسي لتر وربع – 130000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.04.10 PM (1).jpeg"><p>ماء صغير – 30000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.04.10 PM.jpeg"><p>ماء كبير – 40000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.04.11 PM (1).jpeg"><p>زي كولا تنك – 50000</p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-01 at 3.04.11 PM (2).jpeg"><p>زي كولا لتر – 100000</p></div>
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>
+شاورما دجاج صغيرة
+<small class="desc">دجاج، ثوم، مخلل</small>
+<span class="price">200000 ل.ل</span>
+</p>
+<div class="controls">
+<button onclick="add('شاورما دجاج صغيرة',200000)">➕</button>
+<button onclick="remove('شاورما دجاج صغيرة')">➖</button>
+</div>
+</div>
+
 </section>
 
+<!-- السلة -->
+<div class="cart" id="cart">
+<h2>🛒 سلة الطلبات</h2>
+<div id="cart-items"></div>
+<h3 id="total"></h3>
 
+<button class="whatsapp" onclick="sendWhatsApp()">إرسال عبر واتساب</button>
+<br><br>
+<button onclick="closeCart()" style="padding:10px 18px;border:none;border-radius:10px;">إغلاق</button>
+</div>
 
-<!-- الإضافات -->
-<section id="extras" class="menu hidden">
-<h2>✨ صوصات</h2>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.59 PM.jpeg"><p>صوص الابراهيم – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.59 PM (1).jpeg"><p>توم عربي – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (4).jpeg"><p>توم عادي – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.59 PM.jpeg"><p>طحينية – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.58 PM (6).jpeg"><p>حر بطحينية – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-17 at 3.23.59 PM.jpeg"><p>كوكتيل صوص – </p></div>
-<div class="dish"><img src="WhatsApp Image 2026-01-03 at 12.52.12 PM.jpeg"><p>داينمت صوص – </p></div>
+<button class="open-cart" onclick="openCart()">🛒</button>
+
+<section class="social">
+<h2>تابعنا</h2>
+<a href="https://www.instagram.com/" target="_blank">📸 Instagram</a>
+<a href="https://www.tiktok.com/" target="_blank">🎵 TikTok</a>
 </section>
 
 <footer>
-©️ 2025 سمكة الابراهيم
+© الديك 2026
 </footer>
 
 <script>
-function showSection(sectionId, btn){
-  document.querySelectorAll('.menu').forEach(sec => sec.classList.add('hidden'));
-  document.getElementById(sectionId).classList.remove('hidden');
-  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('welcome').style.display = 'none';
+let cart = {};
+
+function add(name,price){
+if(!cart[name]) cart[name]={qty:0,price:price};
+cart[name].qty++;
+}
+
+function remove(name){
+if(cart[name]){
+cart[name].qty--;
+if(cart[name].qty<=0) delete cart[name];
+}
+}
+
+function deleteItem(name){
+delete cart[name];
+renderCart();
+}
+
+function openCart(){
+document.getElementById("cart").style.display="block";
+renderCart();
+}
+
+function closeCart(){
+document.getElementById("cart").style.display="none";
+}
+
+function renderCart(){
+let container=document.getElementById("cart-items");
+container.innerHTML="";
+let total=0;
+
+for(let item in cart){
+let q=cart[item].qty;
+let p=cart[item].price;
+total+=q*p;
+
+container.innerHTML+=`
+<div class="cart-item">
+<span>${item} × ${q}</span>
+<button onclick="deleteItem('${item}')">❌</button>
+</div>
+`;
+}
+
+document.getElementById("total").innerText="المجموع: "+total+" ل.ل";
+}
+
+function sendWhatsApp(){
+let text="طلب جديد:%0A";
+let total=0;
+
+for(let item in cart){
+let q=cart[item].qty;
+let p=cart[item].price;
+total+=q*p;
+text+=item+" x"+q+"%0A";
+}
+
+text+="%0Aالمجموع: "+total+" ل.ل";
+
+window.open("https://wa.me/96181448823?text="+text);
+}
+
+function showSection(id){
+document.querySelectorAll('.menu').forEach(s=>s.classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+document.getElementById('welcome').style.display="none";
+}
+
+function goHome(){
+document.querySelectorAll('.menu').forEach(s=>s.classList.add('hidden'));
+document.getElementById('welcome').style.display="block";
 }
 </script>
 

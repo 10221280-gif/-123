@@ -43,7 +43,6 @@ text-shadow:
 0 0 10px #ff7b00,
 0 0 20px #ff4d00,
 0 0 40px #ff7b00;
-margin:0;
 line-height:1.1;
 }
 
@@ -94,12 +93,12 @@ font-size:18px;
 color:#ddd;
 }
 
-/* MENU */
+/* MENU = عنصران بكل صف */
 .menu{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-gap:18px;
-padding:20px;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+padding:14px;
 }
 
 .hidden{
@@ -117,52 +116,51 @@ transition:.3s;
 }
 
 .dish:hover{
-transform:translateY(-6px);
+transform:translateY(-5px);
 box-shadow:0 12px 24px rgba(255,120,0,.22);
 }
 
 .dish img{
 width:100%;
-height:150px;
+height:120px;
 object-fit:cover;
 }
 
 .dish p{
-padding:12px;
-font-size:17px;
+padding:10px;
+font-size:15px;
 font-weight:bold;
-line-height:1.7;
+line-height:1.6;
 }
 
 .desc{
 display:block;
-font-size:12px;
+font-size:11px;
 font-weight:normal;
-color:#cfcfcf;
+color:#d0d0d0;
 margin-top:4px;
-line-height:1.6;
-padding:0 6px;
+line-height:1.5;
 }
 
 .price{
 display:block;
-margin-top:7px;
+margin-top:6px;
 color:#ffb300;
-font-size:18px;
+font-size:16px;
 }
 
 /* BUTTONS */
 .controls{
 display:flex;
 justify-content:center;
-gap:10px;
-padding:0 0 14px;
+gap:8px;
+padding:0 0 12px;
 }
 
 .controls button{
 border:none;
-padding:8px 14px;
-font-size:18px;
+padding:7px 12px;
+font-size:17px;
 font-weight:bold;
 border-radius:10px;
 cursor:pointer;
@@ -226,7 +224,6 @@ background:#1c1c1c;
 padding:12px;
 margin-bottom:10px;
 border-radius:12px;
-border:1px solid rgba(255,140,0,.2);
 }
 
 .cart-item button{
@@ -271,11 +268,10 @@ max-width:260px;
 margin:10px auto;
 padding:12px;
 background:rgba(0,0,0,.55);
-border:1px solid rgba(255,153,0,.2);
 border-radius:12px;
 color:#fff;
 text-decoration:none;
-transition:.3s;
+border:1px solid rgba(255,153,0,.2);
 }
 
 .social a:hover{
@@ -318,7 +314,7 @@ font-weight:bold;
 <img src="assets/images/img1.jpeg">
 <p>
 مقانق
-<small class="desc">مقانق مشوية، كاتشب، مايونيز، مخلل</small>
+<small class="desc">مقانق مشوية، كاتشب، مايونيز</small>
 <span class="price">350000 ل.ل</span>
 </p>
 <div class="controls">
@@ -348,26 +344,26 @@ font-weight:bold;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>
-شاورما دجاج كبيرة
-<small class="desc">دجاج مشوي، ثوم، مخلل، بطاطا</small>
+شاورما كبيرة
+<small class="desc">دجاج، ثوم، بطاطا، مخلل</small>
 <span class="price">280000 ل.ل</span>
 </p>
 <div class="controls">
-<button onclick="add('شاورما دجاج كبيرة',280000)">➕</button>
-<button onclick="remove('شاورما دجاج كبيرة')">➖</button>
+<button onclick="add('شاورما كبيرة',280000)">➕</button>
+<button onclick="remove('شاورما كبيرة')">➖</button>
 </div>
 </div>
 
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>
-شاورما دجاج صغيرة
+شاورما صغيرة
 <small class="desc">دجاج، ثوم، مخلل</small>
 <span class="price">200000 ل.ل</span>
 </p>
 <div class="controls">
-<button onclick="add('شاورما دجاج صغيرة',200000)">➕</button>
-<button onclick="remove('شاورما دجاج صغيرة')">➖</button>
+<button onclick="add('شاورما صغيرة',200000)">➕</button>
+<button onclick="remove('شاورما صغيرة',200000)">➖</button>
 </div>
 </div>
 
@@ -388,8 +384,8 @@ font-weight:bold;
 
 <section class="social">
 <h2>تابعنا</h2>
-<a href="https://www.instagram.com/" target="_blank">📸 Instagram</a>
-<a href="https://www.tiktok.com/" target="_blank">🎵 TikTok</a>
+<a href="#">📸 Instagram</a>
+<a href="#">🎵 TikTok</a>
 </section>
 
 <footer>
@@ -458,7 +454,6 @@ text+=item+" x"+q+"%0A";
 }
 
 text+="%0Aالمجموع: "+total+" ل.ل";
-
 window.open("https://wa.me/96181448823?text="+text);
 }
 
